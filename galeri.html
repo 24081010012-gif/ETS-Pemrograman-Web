@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galeri – Batik Nusantara</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+    .gallery-item {
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: block;
+      height: 240px;       
+    }
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 32px rgba(107,58,42,0.25);
+      z-index: 2;
+    }
+
+
+    .gallery-photo {
+      width: 100%;
+      height: 100%;          
+      object-fit: cover;     
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover .gallery-photo {
+      transform: scale(1.08);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(28,17,8,0.88) 0%, rgba(28,17,8,0.3) 70%, transparent 100%);
+      color: #fff;
+      padding: 2rem 0.85rem 0.75rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    .gallery-zoom {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: rgba(200,146,42,0.88);
+      color: #fff;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-zoom { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><span class="brand-logo">🪡 Kain Batik Nusantara</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+        <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang Kami</a></li>
+        <li class="nav-item"><a class="nav-link active" href="galeri.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link" href="pemesanan.html">Pemesanan</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <span class="hero-sub">✦ Karya Kami ✦</span>
+    <h1>Galeri Kain Batik</h1>
+    <p>Keindahan yang tertangkap dalam setiap momen</p>
+  </div>
+</div>
+
+<!-- ===== PROSES PEMBUATAN ===== -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge">Proses</span>
+      <h2 class="mt-2">Proses Pembuatan Batik</h2>
+      <p class="text-muted mt-1">Dari kain polos menjadi karya seni yang indah</p>
+    </div>
+    <div class="gallery-grid">
+
+      <!-- 1 Proses Tulis Motif Parang -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="8.jpg"
+          alt="Proses Tulis Motif Parang"
+          onerror="this.onerror=null;this.src='8.jpg';">
+        <div class="gallery-caption">🖌️ Proses Tulis Motif Parang</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <!-- 2 Pewarnaan Alami Indigo -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="9.jpg"
+          alt="Pewarnaan Alami Indigo"
+          onerror="this.onerror=null;this.src='9.jpg';">
+        <div class="gallery-caption">🌿 Pewarnaan Alami Indigo</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <!-- 3 Proses Malam & Canting -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="10.jpg"
+          alt="Proses Malam dan Canting"
+          onerror="this.onerror=null;this.src='10.jpg';">
+        <div class="gallery-caption">🕯️ Proses Malam & Canting</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== KOLEKSI KAIN ===== -->
+<section class="py-5 bg-cream">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge">Koleksi</span>
+      <h2 class="mt-2">Koleksi Kain Batik</h2>
+      <p class="text-muted mt-1">Keindahan motif dari berbagai daerah Nusantara</p>
+    </div>
+    <div class="gallery-grid">
+
+      <!-- Mega Mendung -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="11.jpg"
+          alt="Batik Mega Mendung Cirebon"
+          onerror="this.onerror=null;this.src='11.jpg';">
+        <div class="gallery-caption">☁️ Batik Mega Mendung – Cirebon</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <!-- Kawung -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="12.jpg"
+          alt="Batik Kawung Solo"
+          onerror="this.onerror=null;this.src='12.jpg';">
+        <div class="gallery-caption">🌸 Batik Kawung – Solo</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <!-- Sido Mukti -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="13.jpg"
+          alt="Batik Sido Mukti Solo"
+          onerror="this.onerror=null;this.src='13.jpg';">
+        <div class="gallery-caption">🌾 Batik Sido Mukti – Solo</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAMERAN ===== -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge">Pameran</span>
+      <h2 class="mt-2">Dokumentasi Pameran</h2>
+      <p class="text-muted mt-1">Kami bangga membawa batik ke panggung dunia</p>
+    </div>
+    <div class="gallery-grid">
+
+      <!-- Fashion Show -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="14.jpg"
+          alt="Fashion Show Batik 2024"
+          onerror="this.onerror=null;this.src='14.jpg';">
+        <div class="gallery-caption">👗 Fashion Show Batik 2024</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <!-- Pameran Amsterdam -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="15.jpg"
+          alt="Pameran Amsterdam 2023"
+          onerror="this.onerror=null;this.src='15.jpg';">
+        <div class="gallery-caption">✈️ Pameran Amsterdam 2023</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <!-- Pameran Nasional Jakarta -->
+      <div class="gallery-item">
+        <img class="gallery-photo"
+          src="16.jpg"
+          alt="Pameran Nasional Jakarta 2024"
+          onerror="this.onerror=null;this.src='16.jpg';">
+        <div class="gallery-caption">🏆 Pameran Nasional Jakarta 2024</div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+    </div>
+    <div class="text-center mt-5">
+      <a href="pemesanan.html" class="btn-batik">Pesan Koleksi Kami</a>
+    </div>
+  </div>
+</section>
+
+

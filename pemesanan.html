@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pemesanan - Batik Nusantara</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <style>
+    .info-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem;
+      background: var(--batik-cream);
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: var(--batik-gold);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      flex-shrink: 0;
+    }
+
+    .info-step p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .info-step h6 {
+      margin-bottom: 2px;
+    }
+
+    .aksi-cell {
+      white-space: nowrap;
+    }
+
+    .btn-hapus-pesanan {
+      background: var(--batik-accent);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-hapus-pesanan:hover {
+      background: #6f1111;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span class="brand-logo">🪡 Kain Batik Nusantara</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+          <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pemesanan.html">Pemesanan</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <span class="hero-sub">Pesan Sekarang</span>
+      <h1>Form Pemesanan</h1>
+      <p>Isi data pesanan Anda dengan lengkap dan benar</p>
+    </div>
+  </div>
+
+  <section class="py-5 bg-cream">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-8">
+          <div class="form-card">
+            <span class="section-badge">Input Data</span>
+            <h3 class="mt-2 mb-4">Form Pemesanan Kain Batik Nusantara</h3>
+
+            <form id="formPemesanan">
+              <div class="row g-0">
+                <div class="col-md-6 pe-md-2">
+                  <label class="form-label" for="nama">Nama Lengkap *</label>
+                  <input type="text" class="form-control" id="nama" placeholder="Contoh: Budi Santoso" required />
+                </div>
+                <div class="col-md-6 ps-md-2">
+                  <label class="form-label" for="telp">Nomor WhatsApp *</label>
+                  <input type="tel" class="form-control" id="telp" placeholder="08xxxxxxxxxx" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="email">Alamat Email *</label>
+                  <input type="email" class="form-control" id="email" placeholder="email@contoh.com" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="alamat">Alamat Pengiriman *</label>
+                  <textarea class="form-control" id="alamat" rows="3" placeholder="Masukkan alamat lengkap termasuk RT/RW, kelurahan, kecamatan, kota, dan kode pos" required></textarea>
+                </div>
+
+                <div class="col-12 mt-2">
+                  <hr style="border-color:rgba(107,58,42,0.15);" />
+                  <h5 class="mt-2 mb-3" style="font-family:'Playfair Display',serif;">Detail Produk</h5>
+                </div>
+
+                <div class="col-md-6 pe-md-2">
+                  <label class="form-label" for="produk">Pilih Produk *</label>
+                  <select class="form-select" id="produk" required>
+                    <option value="" disabled selected>-- Pilih Produk --</option>
+                    <option value="Batik Parang Rusak (Rp 450.000)">Batik Parang Rusak - Rp 450.000</option>
+                    <option value="Batik Mega Mendung (Rp 520.000)">Batik Mega Mendung - Rp 520.000</option>
+                    <option value="Batik Kawung Klasik (Rp 395.000)">Batik Kawung Klasik - Rp 395.000</option>
+                    <option value="Batik Truntum (Rp 480.000)">Batik Truntum - Rp 480.000</option>
+                    <option value="Batik Sido Mukti (Rp 550.000)">Batik Sido Mukti - Rp 550.000</option>
+                    <option value="Batik Sekar Jagad (Rp 610.000)">Batik Sekar Jagad - Rp 610.000</option>
+                    <option value="Batik Sogan Klasik (Rp 720.000)">Batik Sogan Klasik - Rp 720.000</option>
+                  </select>
+                </div>
+                <div class="col-md-3 px-md-2">
+                  <label class="form-label" for="ukuran">Ukuran *</label>
+                  <select class="form-select" id="ukuran" required>
+                    <option value="" disabled selected>-- Pilih --</option>
+                    <option value="2m x 1.15m">2m x 1.15m</option>
+                    <option value="2.5m x 1.15m">2.5m x 1.15m</option>
+                    <option value="3m x 1.15m">3m x 1.15m</option>
+                  </select>
+                </div>
+                <div class="col-md-3 ps-md-2">
+                  <label class="form-label" for="jumlah">Jumlah *</label>
+                  <input type="number" class="form-control" id="jumlah" min="1" max="50" value="1" required />
+                </div>
+                <div class="col-md-6 pe-md-2">
+                  <label class="form-label" for="pengiriman">Metode Pengiriman</label>
+                  <select class="form-select" id="pengiriman">
+                    <option>JNE Regular</option>
+                    <option>JNE YES (1 Hari)</option>
+                    <option>J&amp;T Express</option>
+                    <option>SiCepat</option>
+                    <option>Gojek Instant (Surabaya)</option>
+                    <option>Ambil Sendiri di Toko</option>
+                  </select>
+                </div>
+                <div class="col-md-6 ps-md-2">
+                  <label class="form-label" for="pembayaran">Metode Pembayaran</label>
+                  <select class="form-select" id="pembayaran">
+                    <option>Transfer BCA</option>
+                    <option>Transfer BRI</option>
+                    <option>Transfer Mandiri</option>
+                    <option>QRIS</option>
+                    <option>COD (Bayar di Tempat)</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="catatan">Catatan Tambahan</label>
+                  <textarea class="form-control" id="catatan" rows="3" placeholder="Contoh: minta dibungkus kado, warna preferensi, ukuran khusus, dll."></textarea>
+                </div>
+                <div class="col-12 mt-2">
+                  <button type="submit" class="btn-batik w-100" style="padding:14px;font-size:1rem;border-radius:3px;cursor:pointer;">
+                    Simpan Pesanan
+                  </button>
+                  <p class="small text-muted mt-3 mb-0">
+                    Setelah disimpan, data pesanan akan langsung tampil pada tabel Data Pesanan di bawah.
+                  </p>
+                </div>
+              </div>
+            </form>
+
+            <div id="pesananAlert" class="alert alert-success mt-3 d-none" role="alert">
+              Data pesanan berhasil disimpan dan ditampilkan pada tabel.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <h5 class="mb-4" style="font-family:'Playfair Display',serif;">Cara Pemesanan</h5>
+
+          <div class="info-step">
+            <div class="step-num">1</div>
+            <div>
+              <h6>Isi Form</h6>
+              <p>Lengkapi data diri dan detail produk yang ingin dipesan.</p>
+            </div>
+          </div>
+
+          <div class="info-step">
+            <div class="step-num">2</div>
+            <div>
+              <h6>Simpan Pesanan</h6>
+              <p>Klik tombol simpan agar data pesanan masuk ke tabel pada halaman ini.</p>
+            </div>
+          </div>
+
+          <div class="info-step">
+            <div class="step-num">3</div>
+            <div>
+              <h6>Konfirmasi</h6>
+              <p>Tim kami akan menghubungi Anda dalam 1 x 24 jam untuk konfirmasi dan info pembayaran.</p>
+            </div>
+          </div>
+
+          <div class="info-step">
+            <div class="step-num">4</div>
+            <div>
+              <h6>Pengiriman</h6>
+              <p>Produk dikemas dengan aman dan dikirim sesuai pilihan ekspedisi Anda.</p>
+            </div>
+          </div>
+
+          <div class="mt-4 p-3" style="background:var(--batik-cream);border-radius:4px;border-left:3px solid var(--batik-gold);">
+            <h6 style="font-family:'Playfair Display',serif;">Butuh Bantuan?</h6>
+            <p class="text-muted small mb-2">Hubungi kami langsung via WhatsApp:</p>
+            <a href="https://wa.me/6289627521658" class="btn-batik btn-sm" target="_blank">Chat WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <span class="section-badge">Riwayat</span>
+        <h2 class="mt-2">Data Pesanan</h2>
+        <p class="text-muted mt-1">Daftar pesanan yang telah masuk ke sistem kami</p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-batik table-striped table-hover">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Tanggal</th>
+              <th>Nama Pemesan</th>
+              <th>Produk</th>
+              <th>Detail Pesanan</th>
+              <th>Kontak</th>
+              <th>Pengiriman</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="dataPemesananBody">
+            <tr id="emptyRow">
+              <td colspan="9" class="text-center text-muted">Belum ada data pesanan.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const formPemesanan = document.getElementById('formPemesanan');
+    const dataPemesananBody = document.getElementById('dataPemesananBody');
+    const pesananAlert = document.getElementById('pesananAlert');
+    const storageKey = 'dataPemesananBatik';
+    let alertTimeoutId;
+
+    function ambilDataPemesanan() {
+      return JSON.parse(localStorage.getItem(storageKey) || '[]');
+    }
+
+    function simpanDataPemesanan(data) {
+      localStorage.setItem(storageKey, JSON.stringify(data));
+    }
+
+    function formatTanggal() {
+      return new Date().toLocaleDateString('id-ID', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+
+    function escapeHtml(teks) {
+      return String(teks || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function tampilkanAlert(pesan, jenis) {
+      pesananAlert.textContent = pesan;
+      pesananAlert.classList.remove('d-none', 'alert-success', 'alert-warning', 'alert-danger');
+      pesananAlert.classList.add(jenis || 'alert-success');
+
+      clearTimeout(alertTimeoutId);
+      alertTimeoutId = setTimeout(function () {
+        pesananAlert.classList.add('d-none');
+      }, 3000);
+    }
+
+    function renderTabelPesanan() {
+      const daftarPesanan = ambilDataPemesanan();
+
+      if (!daftarPesanan.length) {
+        dataPemesananBody.innerHTML = '<tr id="emptyRow"><td colspan="9" class="text-center text-muted">Belum ada data pesanan.</td></tr>';
+        return;
+      }
+
+      dataPemesananBody.innerHTML = daftarPesanan
+        .map(function (pesanan, index) {
+          const catatan = pesanan.catatan ? '<br>Catatan: ' + escapeHtml(pesanan.catatan) : '';
+
+          return '<tr>' +
+            '<td>' + (index + 1) + '</td>' +
+            '<td>' + escapeHtml(pesanan.tanggal) + '</td>' +
+            '<td><strong>' + escapeHtml(pesanan.nama) + '</strong><br><small class="text-muted">' + escapeHtml(pesanan.email) + '</small></td>' +
+            '<td>' + escapeHtml(pesanan.produk) + '</td>' +
+            '<td>Ukuran: ' + escapeHtml(pesanan.ukuran) + '<br>Jumlah: ' + escapeHtml(pesanan.jumlah) + '<br>Pembayaran: ' + escapeHtml(pesanan.pembayaran) + catatan + '</td>' +
+            '<td>' + escapeHtml(pesanan.telp) + '<br><small class="text-muted">' + escapeHtml(pesanan.alamat) + '</small></td>' +
+            '<td>' + escapeHtml(pesanan.pengiriman) + '</td>' +
+            '<td><span class="badge-diproses">Diproses</span></td>' +
+            '<td class="aksi-cell"><button type="button" class="btn-hapus-pesanan" data-index="' + index + '">Hapus</button></td>' +
+            '</tr>';
+        })
+        .join('');
+    }
+
+    formPemesanan.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (!formPemesanan.checkValidity()) {
+        formPemesanan.reportValidity();
+        return;
+      }
+
+      const pesananBaru = {
+        nama: document.getElementById('nama').value.trim(),
+        telp: document.getElementById('telp').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        alamat: document.getElementById('alamat').value.trim(),
+        produk: document.getElementById('produk').value,
+        ukuran: document.getElementById('ukuran').value,
+        jumlah: document.getElementById('jumlah').value,
+        pengiriman: document.getElementById('pengiriman').value,
+        pembayaran: document.getElementById('pembayaran').value,
+        catatan: document.getElementById('catatan').value.trim(),
+        tanggal: formatTanggal()
+      };
+
+      const daftarPesanan = ambilDataPemesanan();
+      daftarPesanan.unshift(pesananBaru);
+      simpanDataPemesanan(daftarPesanan);
+      renderTabelPesanan();
+
+      tampilkanAlert('Data pesanan berhasil disimpan dan ditampilkan pada tabel.', 'alert-success');
+      formPemesanan.reset();
+      document.getElementById('jumlah').value = 1;
+    });
+
+    dataPemesananBody.addEventListener('click', function (event) {
+      const tombolHapus = event.target.closest('.btn-hapus-pesanan');
+
+      if (!tombolHapus) {
+        return;
+      }
+
+      const indexPesanan = Number(tombolHapus.dataset.index);
+      const daftarPesanan = ambilDataPemesanan();
+      const dataDipilih = daftarPesanan[indexPesanan];
+
+      if (!dataDipilih) {
+        return;
+      }
+
+      const konfirmasiHapus = window.confirm('Hapus data pesanan atas nama ' + dataDipilih.nama + '?');
+
+      if (!konfirmasiHapus) {
+        return;
+      }
+
+      daftarPesanan.splice(indexPesanan, 1);
+      simpanDataPemesanan(daftarPesanan);
+      renderTabelPesanan();
+      tampilkanAlert('Data pesanan berhasil dihapus dari tabel.', 'alert-warning');
+    });
+
+    renderTabelPesanan();
+  </script>
+</body>
+</html>
